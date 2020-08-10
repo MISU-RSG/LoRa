@@ -496,9 +496,9 @@ uint16_t LoRa_init(LoRa* _LoRa){
 			LoRa_write(_LoRa, RegPreambleMsb, _LoRa->preamble >> 8);
 			LoRa_write(_LoRa, RegPreambleLsb, _LoRa->preamble >> 0);
 			
-		// DIO mapping:   --> DIO: RxDone
+		// DIO mapping:   --> DIO0: RxDone
 			read = LoRa_read(_LoRa, RegDioMapping1);
-			data = read | 0x3F;
+			data = 0; //read & 0x3F;
 			LoRa_write(_LoRa, RegDioMapping1, data);
 		
 		// goto standby mode:
