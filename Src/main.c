@@ -57,7 +57,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI3_Init(void);
 /* USER CODE BEGIN PFP */
-
+void alaki(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -133,13 +133,13 @@ int main(void)
 		
 		//SENDING COMMAND
 		//LoRa_transmit(&myLoRa, (uint8_t*)"salam", 7, 200);
-		//HAL_Delay(3000);
+		//HAL_Delay(1500);
 		//READING RESPONSE
 		//LoRa_receive(&myLoRa, read_data, 8);
 		//read_data[9]++;
 		//HAL_Delay(1000);
-		read_data[9] = HAL_GPIO_ReadPin(DIO0_GPIO_Port, DIO0_Pin);
-		read_data[10]++;
+		//read_data[9] = HAL_GPIO_ReadPin(DIO0_GPIO_Port, DIO0_Pin);
+		//read_data[10]++;
 		//SENDING COMMAND
 		//LoRa_transmit(&myLoRa, (uint8_t*)"bye bye", 7, 200);
 		//HAL_Delay(3000);
@@ -277,10 +277,14 @@ static void MX_GPIO_Init(void)
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	if(GPIO_Pin == myLoRa.DIO0_pin){
 		read_data[11]++;
-		LoRa_receive(&myLoRa, read_data, 8);
+		alaki();
 		//HAL_Delay(10);
 	}
 	//read_data[11]++;
+}
+
+void alaki(void){
+	LoRa_receive(&myLoRa, read_data, 8);
 }
 /* USER CODE END 4 */
 

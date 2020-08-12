@@ -124,6 +124,6 @@ void LoRa_setTOMsb_setCRCon(LoRa* _LoRa);
 uint8_t LoRa_transmit(LoRa* _LoRa, uint8_t* data, uint8_t length, uint16_t timeout);
 void LoRa_startReceiving(LoRa* _LoRa);
 void LoRa_receive(LoRa* _LoRa, uint8_t* data, uint8_t length);
-void LoRa_receive_IT(LoRa* _LoRa, uint8_t* data, uint8_t length);
+void LoRa_receive_single(LoRa* _LoRa, uint8_t* data, uint8_t length);
 
 uint16_t LoRa_init(LoRa* _LoRa);
